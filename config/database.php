@@ -1,5 +1,6 @@
 <?php
 
+$DATABASE_URL=parse_url('postgres://kmadttrlvgxmtr:e2103e466106a4430467ef3021698f41a842de44fd2145e2d2881f6ff3606060@ec2-54-225-129-101.compute-1.amazonaws.com:5432/d2106ti2c1g388');
 return [
 
     /*
@@ -76,6 +77,19 @@ return [
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
+        ],
+
+        'pgsql' => [
+            'driver' => 'pgsql',
+            'host' => $DATABASE_URL["host"],
+            'port' => $DATABASE_URL["port"],
+            'database' => ltrim($DATABASE_URL["path"], "/"),
+            'username' => $DATABASE_URL["user"],
+            'password' => $DATABASE_URL["pass"],
+            'charset' => 'utf8',
+            'prefix' => '',
+            'schema' => 'public',
+            'sslmode' => 'require',
         ],
 
         /*'pgsql' => [
