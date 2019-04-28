@@ -24,5 +24,6 @@ Route::get('dashboard','ProductController@index')->name('dashboard');
 Route::get('uploadfile','ProductController@uploadfile')->name('uploadform');
 Route::post('uploadfile','ProductController@uploadFilePost');
 Route::get('/product/detail/{id}','ProductController@detail')->name('detail');
+Route::post('/product/detail/{id}','ProductController@store_postcomment')->name('post_comment');
 
 

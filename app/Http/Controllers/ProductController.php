@@ -73,26 +73,29 @@ class ProductController extends Controller
         
         $product = Product::find($id);
 
-        $post = Post::find($id);
+        $post_comment = Post::where('product_id', $id)->orderBy('id', 'desc')->get();
         
-
-        return view('product_detail',['product' => $product]);
+    
+        return view('product_detail',['product' => $product,'post_comment' => $post_comment]);
     }
 
-    public function create_postcomment()
-    {
-        return view('posts.create');
-    }
+    
 
     public function store_postcomment(Request $request)
     {
         $request->validate([
-            'title'=>'required',
-            'body'=>'required',
+            'body'=>'required'
         ]);
+        
+        $post = new Post();
+        $post->title = $request['title'];
+        $post->body = $request['body'];
+        $post->product_id = $request['post_id'];
+        //Post::create($request->all());
+        $post->save();
     
-        Post::create($request->all());
-    
-        return redirect()->route('posts.index');
+        /*return redirect()->route('posts.index');*/
+        return back()
+            ->with('success','You have successfully add comment.');
     }
 }

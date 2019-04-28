@@ -12,7 +12,7 @@ class Post extends Model
   
     protected $dates = ['deleted_at'];
 
-    protected $fillable = ['title', 'body'];
+    protected $fillable = ['body'];
 
     /*public function comments()
     {
