@@ -73,8 +73,20 @@
             font-weight: 300;
             font-style: italic;
         }
+
+        @media(max-width: 767px)
+        {
+            .header-price
+            {
+                position: absolute;
+                right: 3%;
+                bottom: 3%;
+                font-size: 12pt;
+                font-weight: 400;
+            }
+        }
     </style>
-    
+
 @section('content')
     <div class="container">
 
