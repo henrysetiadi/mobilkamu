@@ -1,14 +1,4 @@
-
-
-</<!DOCTYPE html>
-<html>
-<head>
-    <title>Cars Product</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+@extends('layouts.app')
 
     <style type="text/css">
         .btn-add>a, .btn-add>a:hover, .btn-add>a:focus
@@ -84,8 +74,8 @@
             font-style: italic;
         }
     </style>
-</head>
-<body>
+    
+@section('content')
     <div class="container">
 
         <div class="row">
@@ -191,5 +181,4 @@
            
         </div>
     </div>
-</body>
-</html>
+@endsection
